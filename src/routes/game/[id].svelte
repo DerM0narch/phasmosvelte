@@ -18,7 +18,7 @@
 
     const two_team = "TEAMCHALLENGERS";
     const two_player = "CHALLENGER";
-    const reroll_block = "KEINE KERZEN";
+    const reroll_block = "THE HERMIT";
 
     const alptraum = "SCHLAFPARALYSE"
 
@@ -351,7 +351,9 @@
         </div>
         <div class="buttons">
             <button class="RowI" on:click={newRound}>New Round</button>
-            {#if health > 1 || rerolls > 0}
+            {#if team_challenge === reroll_block || (team_challenge === two_team && team_challenge_1 === reroll_block) || (team_challenge === two_team && team_challenge_2 === reroll_block)}
+            <button class="RowI" disabled style="color:blueviolet; border-color:blueviolet; opacity: 70%;" on:click={doReroll}>Ŗ̷̝̥̭̪̯̞͔̬͎̤̄̏̊̂̾͑͒̀͜e̵̼͇̻͇̥͙̍͗͌̊̊̂̈́̋͑̇̕͝r̶̛̻̹̖͚̄͑͐̔́͋̾̎͂͘͝ô̵̡̪̤͍̮͇̙̝͊̂͒̈́̓̓̾̊́̑́̂͘̚l̸͍̫̝͍͉̮̦͚̜͈̪̥̟̖̙̀͐̂̋l̶̢̛̟̼̳̊̌͆̾͋͒̍̽̄̈̂̈́̚</button>
+            {:else if health > 1 || rerolls > 0}
             <button class="RowI" on:click={doReroll}>Reroll</button>
             {:else}
             <button class="RowI" disabled on:click={doReroll}>Reroll</button>
