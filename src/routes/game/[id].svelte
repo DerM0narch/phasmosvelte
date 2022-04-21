@@ -20,7 +20,8 @@
     const two_player = "CHALLENGER";
     const reroll_block = "THE HERMIT";
 
-    const alptraum = "SCHLAFPARALYSE"
+    const alptraum = "SCHLAFPARALYSE";
+    const doubleround = "THE FOOL";
 
 
     let players = parseInt($page.params.id);
@@ -159,6 +160,12 @@
         if (team_challenge === alptraum || (team_challenge === two_team && team_challenge_1 === alptraum) || (team_challenge === two_team && team_challenge_2 === alptraum))
         {
             difficulty = "ALBTRAUM";
+        }
+
+        if (team_challenge === doubleround || (team_challenge === two_team && team_challenge_1 === doubleround) || (team_challenge === two_team && team_challenge_2 === doubleround))
+        {
+            let second_map = maps_data[parseInt(Math.floor(Math.random() * maps_data.length))];
+            random_map = random_map + ", " + second_map;
         }
     }
     
